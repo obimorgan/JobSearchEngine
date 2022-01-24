@@ -31,7 +31,7 @@ body {
 }
 
 .job_details{
-  width: 30vw;
+  width: 50vw;
   display: grid;
   border: 1px solid white;
   border-radius: 5px;
