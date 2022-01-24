@@ -1,9 +1,10 @@
-// import SearchBar from './SearchBar'
+
 import Jobs from './Jobs'
-import { Container } from 'react-bootstrap'
+import { Container, Col, Row } from 'react-bootstrap'
 import { useState, useEffect } from 'react'
 import CategorySearch from './SearchCategory'
 import SearchBar from './SearchBar'
+
 
 
 const Home = () => {
@@ -61,12 +62,16 @@ const Home = () => {
                     <SearchBar searchInput={searchInput} handelSearch={handelSearch} />
                 </div>
             </div>
-            <Container fluid className="job_details_container">
-                {
-                    data?.map(d => {
-                        return <Jobs key={d._id} data={d} />
-                    })
-                }
+            <Container className="job_details_container">
+                <Row>
+                    <Col md={4}>
+                        {
+                            data?.map(d => {
+                                return <Jobs key={d._id} data={d} />
+                            })
+                        }
+                    </Col>
+                </Row>
             </Container>
         </>
     )

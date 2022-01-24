@@ -18,25 +18,34 @@ body {
 }
 
 .search_bar {
-  border-color: rgb(213, 175, 23);
+  border-color: #d58d11;
   border-radius: 3px;
   padding: 2px;
-
 }
 
-.job_details_container{
-  display: flex;
-  flex-direction: row;
-  flex-flow: wrap;
-}
-
-.job_details{
-  width: 50vw;
-  display: grid;
-  border: 1px solid white;
+.job_details_frame {
+  background-color: rgb(255, 255, 255);
+  width: 460px;
+  height: 300px;
   border-radius: 5px;
-  padding: 4px;
+}
+.job_card{
+  width: 420px;
+  height: 150px;
   display: grid;
   place-items: center;
-  background-color: #F6D106;
+  background-color: #FFAC1D;
+  margin-top: 5px;
+}
+.job_details_header{
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 14px;
+  letter-spacing: 2px;
+}
+.job_detail{
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-weight: 800;
+}
+.job_description {
+  overflow: hidden;
 }
