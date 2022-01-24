@@ -4,7 +4,7 @@ const Jobs = ({ data }) => {
     const { title, company_name, category, candidate_required_location } = data
     return (
         <>
-            <div className="job_details" >
+            <div className="job_details mt-5">
                 <h5>{title}</h5>
                 <ul>
                     <Link to={`/${company_name}`}> <li>Company Name - {company_name}</li></Link>

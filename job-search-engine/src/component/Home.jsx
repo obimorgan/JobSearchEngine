@@ -1,6 +1,6 @@
 // import SearchBar from './SearchBar'
 import Jobs from './Jobs'
-import { ButtonGroup, Option, Select } from 'react-bootstrap'
+import { ButtonGroup, } from 'react-bootstrap'
 import { Container } from 'react-bootstrap'
 import { useState, useEffect } from 'react'
 
@@ -26,10 +26,6 @@ const Home = () => {
         }
     }
 
-    // const handelSearch = (searchInput) => {
-    //     fetchJobs(searchInput)
-    // }
-
     const handleDropdownChange = (e) => {
         setCategory(e.target.value)
         console.log("dropdown")
@@ -40,13 +36,12 @@ const Home = () => {
     }, [searchInput, category])
 
     return (
-        <Container className="wrapper">
-            <div className="home_items">
+        <>
+            <div className="wrapper">
                 <h1>Search Jobs!</h1>
-
-                <div className="d-flex align-items-center">
+                <div className="d-flex align-items-center mt-n5">
                     <form>
-                        <select as={ButtonGroup} title="Category" id="dropdown-basic" variant="success"
+                        <select className="category_dropdown"
                             value={category}
                             onChange={handleDropdownChange}
                         >
@@ -66,8 +61,6 @@ const Home = () => {
                             <option value="Writing">Writing</option>
                         </select>
                     </form>
-
-
                     <div className="search_bar_container mx-2">
                         <input className="search_bar" placeholder="Search Jobs"
                             value={searchInput}
@@ -75,14 +68,15 @@ const Home = () => {
                         ></input>
                     </div>
                 </div>
-
+            </div>
+            <Container className="job_details_container">
                 {
                     data?.map(d => {
                         return <Jobs key={d._id} data={d} />
                     })
                 }
-            </div>
-        </Container>
+            </Container>
+        </>
     )
 }
 
