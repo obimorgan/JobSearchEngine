@@ -1,6 +1,6 @@
 // import SearchBar from './SearchBar'
 import Jobs from './Jobs'
-import { ButtonGroup, Dropdown, DropdownButton, Button } from 'react-bootstrap'
+import { ButtonGroup, Option, Select } from 'react-bootstrap'
 import { Container } from 'react-bootstrap'
 import { useState, useEffect } from 'react'
 
@@ -12,6 +12,7 @@ const Home = () => {
     const [category, setCategory] = useState()
 
     console.log("Home", data)
+    console.log("category", category)
 
     const fetchJobs = async () => {
         try {
@@ -25,11 +26,12 @@ const Home = () => {
         }
     }
 
-    const handelSearch = (searchInput) => {
-        fetchJobs(searchInput)
-    }
+    // const handelSearch = (searchInput) => {
+    //     fetchJobs(searchInput)
+    // }
 
-    const handleDropdownChange = () => {
+    const handleDropdownChange = (e) => {
+        setCategory(e.target.value)
         console.log("dropdown")
     }
 
@@ -43,25 +45,27 @@ const Home = () => {
                 <h1>Search Jobs!</h1>
 
                 <div className="d-flex align-items-center">
-                    <DropdownButton as={ButtonGroup} title="Category" id="dropdown-basic" variant="success"
-                        value={category}
-                        onChange={handleDropdownChange}
-                    >
-                        <Dropdown.Item value="Business">Business</Dropdown.Item>
-                        <Dropdown.Item value="Customer Service">Customer Service</Dropdown.Item>
-                        <Dropdown.Item value="Data">Data</Dropdown.Item>
-                        <Dropdown.Item value="Design">Design</Dropdown.Item>
-                        <Dropdown.Item value="DevOps / Sysadmin">DevOps / Sysadmin</Dropdown.Item>
-                        <Dropdown.Item value="inance / Legal">Finance / Legal</Dropdown.Item>
-                        <Dropdown.Item value="uman Resources">Human Resources</Dropdown.Item>
-                        <Dropdown.Item value="Marketing">Marketing</Dropdown.Item>
-                        <Dropdown.Item value="Product">Product</Dropdown.Item>
-                        <Dropdown.Item value="QA">QA</Dropdown.Item>
-                        <Dropdown.Item value="Sales">Sales</Dropdown.Item>
-                        <Dropdown.Item value="Software Development">Software Development</Dropdown.Item>
-                        <Dropdown.Item value="Teaching">Teaching</Dropdown.Item>
-                        <Dropdown.Item value="Writing">Writing</Dropdown.Item>
-                    </DropdownButton>
+                    <form>
+                        <select as={ButtonGroup} title="Category" id="dropdown-basic" variant="success"
+                            value={category}
+                            onChange={handleDropdownChange}
+                        >
+                            <option value="Business">Business</option>
+                            <option value="Customer Service">Customer Service</option>
+                            <option value="Data">Data</option>
+                            <option value="Design">Design</option>
+                            <option value="DevOps / Sysadmin">DevOps / Sysadmin</option>
+                            <option value="inance / Legal">Finance / Legal</option>
+                            <option value="uman Resources">Human Resources</option>
+                            <option value="Marketing">Marketing</option>
+                            <option value="Product">Product</option>
+                            <option value="QA">QA</option>
+                            <option value="Sales">Sales</option>
+                            <option value="Software Development">Software Development</option>
+                            <option value="Teaching">Teaching</option>
+                            <option value="Writing">Writing</option>
+                        </select>
+                    </form>
 
 
                     <div className="search_bar_container mx-2">
@@ -69,9 +73,6 @@ const Home = () => {
                             value={searchInput}
                             onChange={(e) => setSearchInput(e.target.value)}
                         ></input>
-                        <button className="search_btn" style={{ display: "none" }}
-                            unSubmit={() => handelSearch(searchInput)}
-                        >Search</button>
                     </div>
                 </div>
 
