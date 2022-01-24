@@ -3,3 +3,11 @@
   display: grid;
   place-items: center;
 }
+
+.job_details{
+  margin-top: 50px;
+}
+
+/* .home_items {
+  position: absolute;
+} */

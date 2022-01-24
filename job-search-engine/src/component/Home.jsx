@@ -3,6 +3,7 @@ import Jobs from './Jobs'
 import { Container } from 'react-bootstrap'
 import { useState, useEffect } from 'react'
 
+
 const Home = () => {
 
     const [data, setData] = useState([])
@@ -33,7 +34,8 @@ const Home = () => {
 
     return (
         <Container className="wrapper">
-            <div>
+            <div className="home_items">
+                <h1>Search Jobs!</h1>
                 <div className="search_bar_container">
                     <input className="search_bar" placeholder="Search Jobs"
                         value={searchInput}
