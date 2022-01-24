@@ -1,15 +1,19 @@
-const Jobs = () => {
+
+
+const Jobs = ({ data }) => {
+    const { title, company_name, category, candidate_required_location } = data
     return (
-        <div>
+        <>
             <div>
-                Search Results:
+                <h5>{title}</h5>
+                <ul>
+                    <li>{company_name}</li>
+                    <li>{category} </li>
+                    <li>{candidate_required_location}</li>
+                </ul>
             </div>
-            <ul>
-                <li>Job Title:
-                Company:
-            </li>
-            </ul>
-        </div>
+        </>
+
     )
 }
 

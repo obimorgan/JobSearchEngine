@@ -1,23 +1,23 @@
-import { useState } from 'react'
-import '../App.css';
+// import { useState } from 'react'
+// import '../App.css';
 
-const SearchBar = ({ handelSearch }) => {
+// const SearchBar = ({ handelSearch }) => {
 
-    const [searchInput, setSearchInput] = useState("")
+//     const [searchInput, setSearchInput] = useState("")
 
-    const handelInput = () => { setSearchInput(searchInput) }
+//     return (
+//         <>
+//             <div className="search_bar_container">
+//                 <input className="search_bar" placeholder="Search Jobs"
+//                     value={searchInput}
+//                     onChange={(e) => setSearchInput(e.target.value)}
+//                 ></input>
+//                 <button className="search_btn"
+//                     onClick={() => handelSearch(searchInput)}
+//                 >Search</button>
+//             </div>
+//         </>
+//     )
+// }
 
-    return (
-        <>
-            <div className="search_bar_container">
-                <input className="search_bar" placeholder="Search Jobs"
-                    value={searchInput.value}
-                    onChange={(e) => handelInput(e.target.value)}
-                    onSubmit={() => handelSearch}
-                ></input>
-            </div>
-        </>
-    )
-}
-
-export default SearchBar
+// export default SearchBar
