@@ -5,6 +5,7 @@ const CategorySearch = ({ handleDropdownChange, category }) => {
                 value={category}
                 onChange={handleDropdownChange}
             >
+                <option value="">Categories</option>
                 <option value="Business">Business</option>
                 <option value="Customer Service">Customer Service</option>
                 <option value="Data">Data</option>
