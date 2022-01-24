@@ -16,7 +16,19 @@ const Home = () => {
 
     const fetchJobs = async () => {
         try {
-            let resp = await fetch(`https://strive-jobs-api.herokuapp.com/jobs?search=${searchInput || category}&limit=10`)
+            let resp = await fetch(`https://strive-jobs-api.herokuapp.com/jobs?search=${searchInput}&limit=10`)
+            if (resp.ok) {
+                let data = await resp.json()
+                setData(data.data)
+            }
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    const fetchJobsCategory = async () => {
+        try {
+            let resp = await fetch(`https://strive-jobs-api.herokuapp.com/jobs?category=${category}&limit=10`)
             if (resp.ok) {
                 let data = await resp.json()
                 setData(data.data)
@@ -33,6 +45,7 @@ const Home = () => {
 
     useEffect(() => {
         fetchJobs(searchInput)
+        fetchJobsCategory(category)
     }, [searchInput, category])
 
     return (
