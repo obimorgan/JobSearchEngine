@@ -1,9 +1,18 @@
+import { connect } from "react-redux"
 import { useEffect, useState } from "react"
+import { addSearchResultAction } from '../redux/actions'
 
+
+const mapDispatchToProps = (dispatch) => ({
+    addSearchResult: (data) => {
+        dispatch(addSearchResultAction(data))
+    }
+})
 
 const SearchBar = () => {
 
     const [searchInput, setSearchInput] = useState("")
+    const [data, setData] = useState([])
 
     const fetchJobs = async () => {
         try {
@@ -11,6 +20,7 @@ const SearchBar = () => {
             if (resp.ok) {
                 let data = await resp.json()
                 console.log(data.data)
+                setData(data.data)
             }
         } catch (error) {
             console.log(error)
@@ -22,8 +32,12 @@ const SearchBar = () => {
         console.log(searchInput)
     }
     useEffect(() => {
+        fetchJobs(searchInput)
+    }, [searchInput])
 
-    }, [])
+    useEffect(() => {
+        mapDispatchToProps(data)
+    }, [data])
 
 
     return (
@@ -35,4 +49,4 @@ const SearchBar = () => {
         </div>
     )
 }
-export default SearchBar
+export default connect(s => ({}), mapDispatchToProps)(SearchBar)
