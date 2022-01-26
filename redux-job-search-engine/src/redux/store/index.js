@@ -15,7 +15,7 @@ export const initialState = {
 const store = createStore(
   MainReducer,
   initialState,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  window._REDUX_DETOOLS_EXTENSION_ && window._REDUX_DETOOLS_EXTENSION_()
 );
 
 export default store;
