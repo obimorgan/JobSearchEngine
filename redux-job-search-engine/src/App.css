@@ -1,7 +1,9 @@
+/** @format */
+
 body {
   background-color: rgb(242, 242, 242);
 }
-.wrapper{
+.wrapper {
   height: 30vh;
   display: grid;
   place-items: center;
@@ -13,7 +15,7 @@ body {
   color: antiquewhite;
   padding: 8px;
   width: 120px;
-  font-weight:600;
+  font-weight: 600;
   border-radius: 3px;
 }
 
@@ -29,23 +31,31 @@ body {
   height: 300px;
   border-radius: 5px;
 }
-.job_card{
+.job_card {
   width: 420px;
   height: 150px;
   display: grid;
   place-items: center;
-  background-color: #FFAC1D;
+  background-color: #ffac1d;
   margin-top: 5px;
 }
-.job_details_header{
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+.job_details_header {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   font-size: 14px;
   letter-spacing: 2px;
 }
-.job_detail{
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+.job_detail {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   font-weight: 800;
 }
 .job_description {
   overflow: hidden;
+}
+.fav_btn {
+  border-radius: 10px;
+  color: white;
+  background-color: rgb(18, 114, 82);
+  border: none;
+  padding: none;
 }

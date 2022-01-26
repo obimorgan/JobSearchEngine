@@ -11,9 +11,6 @@ const Home = () => {
     const [searchInput, setSearchInput] = useState()
     const [category, setCategory] = useState()
 
-    console.log("Home", data)
-    console.log("category", category)
-
     const fetchJobs = async () => {
         try {
             let resp = await fetch(`https://strive-jobs-api.herokuapp.com/jobs?search=${searchInput}&limit=10`)

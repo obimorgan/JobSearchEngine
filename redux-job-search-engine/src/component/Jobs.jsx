@@ -1,7 +1,19 @@
 import { Link } from "react-router-dom"
+import { connect } from 'react-redux'
+import { addToFavourites } from '../redux/actions'
 
-const Jobs = ({ data }) => {
+
+const mapDispatchToProps = (dispatch) => ({
+    addToFavourites: (data) => {
+        console.log("D-a-ta is", data)
+        dispatch(addToFavourites(data))
+    }
+})
+
+const Jobs = ({ data, addToFavourites }) => {
     const { title, company_name, candidate_required_location } = data
+
+
     return (
         <>
             <div className="job_details_frame my-3">
@@ -23,8 +35,13 @@ const Jobs = ({ data }) => {
                             <Link to={`/${company_name}`} className="job_detail">{company_name}</Link>
                         </div>
                     </div>
-                    <p className="job_details_header mx-3 mt-2">Job description:</p>
-                    {/* <div className="job_description">{description}</div> */}
+                    <div className="d-flex justify-content-between">
+                        <p className="job_details_header mx-3 mt-2">Job description:</p>
+                        <button onClick={() => addToFavourites(data)}
+                            className="fav_btn mr-3 mt-3"
+                        >Add to favourites</button>
+                    </div>
+
                 </div>
             </div>
         </>
@@ -32,4 +49,4 @@ const Jobs = ({ data }) => {
     )
 }
 
-export default Jobs
+export default connect(s => ({}), mapDispatchToProps)(Jobs)
