@@ -1,19 +1,19 @@
 /** @format */
-
+import { ADD_SEARCH_RESULT, ADD_TO_FAVOURITES } from "../actions";
 import { initialState } from "../store";
 
 export const MainReducer = (state = initialState, action) => {
   switch (action.type) {
-    case "DATA_TO_ADD": {
+    case ADD_SEARCH_RESULT: {
       return {
         ...state,
-        data: {
-          ...state.data,
-          results: [...state.data.results, action.payload],
+        searchResults: {
+          ...state.searchResults,
+          results: [...state.searchResults.results, action.payload],
         },
       };
     }
-    case "ADD_TO_FAVOURITES": {
+    case ADD_TO_FAVOURITES: {
       return {
         ...state,
         favourites: {
