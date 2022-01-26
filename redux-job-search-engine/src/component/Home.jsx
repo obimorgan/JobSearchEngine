@@ -5,8 +5,6 @@ import { useState, useEffect } from 'react'
 import CategorySearch from './SearchCategory'
 import SearchBar from './SearchBar'
 
-
-
 const Home = () => {
 
     const [data, setData] = useState([])

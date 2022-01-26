@@ -1,3 +1,4 @@
+
 const SearchBar = ({ handelSearch, searchInput }) => {
     return (
         <div className="search_bar_container mx-2">

@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
 
 const Jobs = ({ data }) => {
-    const { title, company_name, description, candidate_required_location } = data
+    const { title, company_name, candidate_required_location } = data
     return (
         <>
             <div className="job_details_frame my-3">
