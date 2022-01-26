@@ -1,15 +1,6 @@
 import { Link } from "react-router-dom"
-import { FcLikePlaceholder, FcLike } from "react-icons/fc";
-import { connect } from 'react-redux'
-import { addToFavouriesAction } from '../redux/actions'
 
-
-
-const mapDispatchToProps = (dispatch) => ({
-    addToFavourites: (company_name) => { dispatch(addToFavouriesAction(company_name)) }
-})
-
-const Jobs = ({ data, addToFavourites }) => {
+const Jobs = ({ data }) => {
     const { title, company_name, candidate_required_location } = data
     return (
         <>
@@ -17,10 +8,6 @@ const Jobs = ({ data, addToFavourites }) => {
                 <div className="job_details_body flex-column">
                     <div className="job_card m-auto">
                         <h3>{company_name}</h3>
-                        <div className="like_placeholder"
-                            onClick={() => addToFavourites(company_name)}
-                        ><FcLikePlaceholder /></div>
-                        <div className="liked"><FcLike /></div>
                     </div>
                     <div className="job_details d-flex justify-content-between mx-3">
                         <div className="flex-column">
@@ -45,5 +32,4 @@ const Jobs = ({ data, addToFavourites }) => {
     )
 }
 
-export default connect(s => ({}), mapDispatchToProps)(Jobs)
-// export default Jobs
+export default Jobs
