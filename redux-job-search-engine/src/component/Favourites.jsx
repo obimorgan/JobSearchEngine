@@ -1,25 +1,39 @@
 import { Link } from "react-router-dom"
 import { connect } from 'react-redux'
 import { Container, Row, Col } from "react-bootstrap"
+import { removeFromFavouritesAction } from "../redux/actions"
 
 
 const mapStateToProps = (state) => ({
     companies: state.favourites.companies
 })
 
+const mapDispatchToProps = (dispatch) => ({
+    removeFromFavourites: (index) => {
+        dispatch(removeFromFavouritesAction(index))
+    }
+})
 
-const Favourites = ({ companies }) => {
+// const removeFromFavourites = () => {
+//     console.log("Remove me")
+// }
+
+
+const Favourites = ({ companies, removeFromFavourites }) => {
 
     console.log(companies)
 
     return (
         <>
+            <div className="wrapper">
+                <h1>Your Favourites!</h1>
+            </div>
             <Container>
                 <Row>
                     <Col md="4">
                         {
-                            companies?.map(company => (
-                                <div key={company._id} className="job_details_frame my-3" >
+                            companies?.map((company, i) => (
+                                <div key={i} className="job_details_frame my-3" >
                                     <div className="job_details_body flex-column">
                                         <div className="job_card m-auto">
                                             <h3>{company.company_name}</h3>
@@ -41,12 +55,14 @@ const Favourites = ({ companies }) => {
                                         <div className="d-flex justify-content-between">
                                             <p className="job_details_header mx-3 mt-2">Job description:</p>
                                         </div>
+                                        <button onClick={() => removeFromFavourites(i)}
+                                            className="fav_btn mr-3 mt-3"
+                                        >Remove from favourites</button>
 
                                     </div>
                                 </div>
                             ))
                         }
-                        {/* <div>Hello favourites</div> */}
                     </Col>
                 </Row>
             </Container>
@@ -55,5 +71,5 @@ const Favourites = ({ companies }) => {
     )
 }
 
-export default connect(mapStateToProps)(Favourites)
+export default connect(mapStateToProps, mapDispatchToProps)(Favourites)
 // export default Favourites

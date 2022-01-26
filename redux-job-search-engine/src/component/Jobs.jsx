@@ -1,13 +1,12 @@
 import { Link } from "react-router-dom"
 import { connect } from 'react-redux'
-import { addToFavourites } from '../redux/actions'
-// import { useNavigate } from "react-router"
+import { addToFavouritesAction } from '../redux/actions'
 
 
 const mapDispatchToProps = (dispatch) => ({
     addToFavourites: (data) => {
         console.log("D-a-ta is", data)
-        dispatch(addToFavourites(data))
+        dispatch(addToFavouritesAction(data))
     }
 })
 

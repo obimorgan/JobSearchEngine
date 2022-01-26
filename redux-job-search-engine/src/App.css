@@ -62,6 +62,8 @@ body {
 .search_container {
   position: relative;
 }
+.liked_counter_wrapper {
+}
 .liked_container {
   width: 20px;
   height: 20px;
