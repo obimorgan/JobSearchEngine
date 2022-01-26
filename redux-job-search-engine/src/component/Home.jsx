@@ -38,25 +38,25 @@ const Home = () => {
         }
     }
 
-    // const handelSearch = (e) => {
-    //     setSearchInput(e.target.value)
-    // }
+    const handelSearch = (e) => {
+        setSearchInput(e.target.value)
+    }
     const handleDropdownChange = (e) => {
         setCategory(e.target.value)
         console.log("dropdown")
     }
 
-    // useEffect(() => {
-    //     // fetchJobs(searchInput)
-    //     fetchJobsCategory(category)
-    // }, [searchInput, category])
+    useEffect(() => {
+        fetchJobs(searchInput)
+        fetchJobsCategory(category)
+    }, [searchInput, category])
 
     return (
         <>
             <div className="wrapper">
                 <h1>Search Jobs!</h1>
                 <div className="d-flex align-items-center mt-n5">
-                    {/* <CategorySearch category={category} handleDropdownChange={handleDropdownChange} /> */}
+                    <CategorySearch category={category} handleDropdownChange={handleDropdownChange} />
                     <SearchBar />
                 </div>
             </div>
