@@ -1,19 +1,16 @@
 /** @format */
 
 import { createStore } from "redux";
-import { MainReducer } from "../reducers";
+import { mainReducer } from "../reducers";
 
 export const initialState = {
-  searchResults: {
-    results: [],
-  },
-  favourites: {
-    companies: [],
+  searchResult: {
+    allResults: [],
   },
 };
 
 const store = createStore(
-  MainReducer,
+  mainReducer,
   initialState,
   window._REDUX_DETOOLS_EXTENSION_ && window._REDUX_DETOOLS_EXTENSION_()
 );
