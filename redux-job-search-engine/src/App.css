@@ -59,3 +59,20 @@ body {
   border: none;
   padding: none;
 }
+.search_container {
+  position: relative;
+}
+.liked_container {
+  width: 20px;
+  height: 20px;
+  background-color: rgb(18, 114, 82);
+  border-radius: 50%;
+  position: relative;
+}
+.liked_counter {
+  color: white;
+  position: absolute;
+  left: 4px;
+  top: -3px;
+  padding: 1px;
+}

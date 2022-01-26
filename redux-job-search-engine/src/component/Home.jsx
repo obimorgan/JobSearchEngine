@@ -1,4 +1,4 @@
-
+import Liked from './Liked'
 import Jobs from './Jobs'
 import { Container, Col, Row } from 'react-bootstrap'
 import { useState, useEffect } from 'react'
@@ -55,6 +55,7 @@ const Home = () => {
                 <div className="d-flex align-items-center mt-n5">
                     <CategorySearch category={category} handleDropdownChange={handleDropdownChange} />
                     <SearchBar searchInput={searchInput} handelSearch={handelSearch} />
+                    <Liked />
                 </div>
             </div>
             <Container className="job_details_container">

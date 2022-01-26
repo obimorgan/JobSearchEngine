@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom"
 import { connect } from 'react-redux'
 import { addToFavourites } from '../redux/actions'
+// import { useNavigate } from "react-router"
 
 
 const mapDispatchToProps = (dispatch) => ({
@@ -12,7 +13,7 @@ const mapDispatchToProps = (dispatch) => ({
 
 const Jobs = ({ data, addToFavourites }) => {
     const { title, company_name, candidate_required_location } = data
-
+    // const navigate = useNavigate()
 
     return (
         <>
