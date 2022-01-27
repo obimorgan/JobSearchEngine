@@ -4,6 +4,7 @@ export const ADD_TO_FAVOURITES = "ADD_TO_FAVOURITES";
 export const REMOVE_FROM_FAVOURITES = "REMOVE_FROM_FAVOURITES";
 export const SET_JOBS_BY_CATEGORY = "SET_JOBS_BY_CATEGORY";
 export const SET_JOBS = "SET_JOBS";
+export const CATCH_ERROR = "CATCH_ERROR";
 
 export const setJobsAction = (searchInput) => {
   return async (dispatch, getState) => {
@@ -15,7 +16,7 @@ export const setJobsAction = (searchInput) => {
         let data = await resp.json();
         setTimeout(() => {
           console.log("settimeout is working");
-          console.log("My Satates", getState());
+          console.log("My States", getState());
           dispatch({
             type: SET_JOBS,
             payload: data.data,
@@ -24,6 +25,7 @@ export const setJobsAction = (searchInput) => {
       } else {
         console.log("error");
         dispatch({
+          type: CATCH_ERROR,
           payload: resp.status,
         });
       }
@@ -45,13 +47,13 @@ export const setJobsByCategoryAction = (category) => {
           type: SET_JOBS_BY_CATEGORY,
           payload: data.data,
         });
+      } else {
+        console.log("error");
+        dispatch({
+          ype: CATCH_ERROR,
+          payload: resp.status,
+        });
       }
-      // else {
-      //   console.log("error");
-      //   dispatch({
-      //     payload: resp.status,
-      //   });
-      // }
     } catch (error) {
       console.log(error);
     }
