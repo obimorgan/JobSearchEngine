@@ -21,6 +21,7 @@ const Favourites = ({ companies, removeFromFavourites }) => {
     return (
         <>
             <div className="wrapper">
+                <Link to="/" > <div className="my-5">Back to search</div> </Link>
                 <h1>Your Favourites!</h1>
             </div>
 

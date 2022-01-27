@@ -21,7 +21,7 @@ export const setJobsAction = (searchInput) => {
             type: SET_JOBS,
             payload: data.data,
           });
-        }, 2000);
+        }, 1000);
       } else {
         console.log("error");
         dispatch({
