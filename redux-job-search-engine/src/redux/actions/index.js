@@ -50,7 +50,7 @@ export const setJobsByCategoryAction = (category) => {
       } else {
         console.log("error");
         dispatch({
-          ype: CATCH_ERROR,
+          type: CATCH_ERROR,
           payload: resp.status,
         });
       }

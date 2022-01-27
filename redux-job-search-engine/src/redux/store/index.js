@@ -14,6 +14,7 @@ export const initialState = {
   },
   categorySearch: {
     results: [],
+    errorStatus: null,
   },
 };
 

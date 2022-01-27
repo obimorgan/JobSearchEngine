@@ -51,7 +51,7 @@ const Favourites = ({ companies, removeFromFavourites }) => {
                                     <div className="d-flex justify-content-between">
                                         <p className="job_details_header mx-3 mt-2">Job description:</p>
                                     </div>
-                                    <button onClick={() => removeFromFavourites(company._id)}
+                                    <button onClick={() => removeFromFavourites(i)}
                                         className="fav_btn mr-3 mt-3"
                                     >Remove from favourites</button>
 
