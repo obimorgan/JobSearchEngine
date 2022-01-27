@@ -6,7 +6,6 @@ const mapStateToProps = (state) => ({
     jobs: state.categorySearch.results
 })
 
-
 const mapDispatchToProps = (dispatch) => ({
     addToFavourites: (job) => {
         console.log("D-a-ta is", job)
