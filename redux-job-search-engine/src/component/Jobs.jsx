@@ -12,12 +12,11 @@ const mapDispatchToProps = (dispatch) => ({
 
 const Jobs = ({ data, addToFavourites }) => {
     const { title, company_name, candidate_required_location } = data
-    // const navigate = useNavigate()
 
     return (
         <>
             <div className="job_details_frame my-3">
-                <div className="job_details_body flex-column">
+                <div className="job_details_body">
                     <div className="job_card m-auto">
                         <h3>{company_name}</h3>
                     </div>

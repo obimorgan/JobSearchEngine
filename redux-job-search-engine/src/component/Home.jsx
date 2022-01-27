@@ -52,22 +52,23 @@ const Home = () => {
         <>
             <div className="wrapper">
                 <h1>Search Jobs!</h1>
-                <div className="d-flex align-items-center mt-n5">
+                <div className="search_container d-flex align-items-center mt-n5">
                     <CategorySearch category={category} handleDropdownChange={handleDropdownChange} />
-                    <SearchBar searchInput={searchInput} handelSearch={handelSearch} />
+                    <div className="mx-5" ><SearchBar searchInput={searchInput} handelSearch={handelSearch} /></div>
                     <Liked />
+
                 </div>
             </div>
-            <Container className="job_details_container">
-                <Row>
-                    <Col md={4}>
-                        {
-                            data?.map(d => {
-                                return <Jobs key={d._id} data={d} />
-                            })
-                        }
-                    </Col>
-                </Row>
+            <Container >
+                <hr />
+
+                <div className="d-flex flex-wrap justify-content-between">
+                    {
+                        data?.map(d => {
+                            return <Jobs key={d._id} data={d} />
+                        })
+                    }
+                </div>
             </Container>
         </>
     )
