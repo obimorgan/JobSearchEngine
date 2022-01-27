@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 import { connect } from 'react-redux'
-import { Container, Row, Col } from "react-bootstrap"
+import { Container } from "react-bootstrap"
 import { removeFromFavouritesAction } from "../redux/actions"
 
 
@@ -9,8 +9,8 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-    removeFromFavourites: (index) => {
-        dispatch(removeFromFavouritesAction(index))
+    removeFromFavourites: (id) => {
+        dispatch(removeFromFavouritesAction(id))
     }
 })
 
@@ -51,7 +51,7 @@ const Favourites = ({ companies, removeFromFavourites }) => {
                                     <div className="d-flex justify-content-between">
                                         <p className="job_details_header mx-3 mt-2">Job description:</p>
                                     </div>
-                                    <button onClick={() => removeFromFavourites(i)}
+                                    <button onClick={() => removeFromFavourites(company._id)}
                                         className="fav_btn mr-3 mt-3"
                                     >Remove from favourites</button>
 

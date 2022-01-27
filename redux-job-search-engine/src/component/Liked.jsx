@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 
 const mapStateToProps = (state) => ({
-    LikedCount: state.favourites.companies
+    LikedCount: state.favourites.companies.length
 })
 
 const Liked = ({ LikedCount }) => {
@@ -15,7 +15,7 @@ const Liked = ({ LikedCount }) => {
                 </div>
                 <div className="liked_container d-flex">
                     <div>
-                        <div className="liked_counter">{LikedCount.length}</div>
+                        <div className="liked_counter">{LikedCount}</div>
                     </div>
                 </div>
             </Link>

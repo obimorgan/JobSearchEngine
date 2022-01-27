@@ -1,12 +1,32 @@
+import { connect } from 'react-redux'
+import { useState } from 'react'
+import { setJobsAction } from '../redux/actions'
 
-const SearchBar = ({ handelSearch, searchInput }) => {
+const mapDispatchToProps = dispatch => ({
+    setSearch: (searchInput) => {
+        dispatch(setJobsAction(searchInput))
+    }
+})
+
+const SearchBar = ({ setSearch }) => {
+
+    const [searchInput, setSearchInput] = useState("")
+
     return (
         <div className="search_bar_container mx-2">
             <input className="search_bar" placeholder="Search Jobs"
                 value={searchInput}
-                onChange={handelSearch}
+                onChange={e => {
+                    setSearchInput(e.target.value)
+                    console.log("Im typing:", e.target.value)
+                }}
+                onKeyDown={e => {
+                    if (e.key === 'Enter') {
+                        setSearch(searchInput)
+                    }
+                }}
             ></input>
         </div>
     )
 }
-export default SearchBar
+export default connect(s => ({}), mapDispatchToProps)(SearchBar)
