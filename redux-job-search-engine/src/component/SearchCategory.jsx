@@ -16,7 +16,7 @@ const CategorySearch = ({ JobsByCategory }) => {
         <form>
             <select className="category_dropdown"
                 value={category}
-                onClick={e => { setCategory(e.target.value) }}
+                onChange={e => { setCategory(e.target.value) }}
             // onClick={e => JobsByCategory(category)}
             >
                 <option value="">Categories</option>

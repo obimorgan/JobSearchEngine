@@ -21,7 +21,6 @@ const Home = ({ errorStatus }) => {
                     <SearchBar />
                     <Liked />
                 </div>
-
             </div>
             <Container >
                 <hr />
@@ -32,9 +31,6 @@ const Home = ({ errorStatus }) => {
                         </Alert>
                     )
                 }
-                {/* <Alert variant="danger">
-                    There is an error with retrieving data: {errorStatus}
-                </Alert> */}
                 <div className="d-flex flex-wrap justify-content-between">
                     <Jobs />
                 </div>
