@@ -18,7 +18,7 @@ const Favourites = () => {
 
     const companies = useSelector(state => state.favourites.companies)
     const dispatch = useDispatch()
-    console.log(companies)
+
     return (
         <>
             <div className="wrapper">
@@ -53,7 +53,7 @@ const Favourites = () => {
                                     <div className="d-flex justify-content-between">
                                         <p className="job_details_header mx-3 mt-2">Job description:</p>
                                     </div>
-                                    <button onClick={() => dispatch(removeFromFavouritesAction(i))}
+                                    <button onClick={() => dispatch(removeFromFavouritesAction(company))}
                                         className="fav_btn mr-3 mt-3"
                                     >Remove from favourites</button>
 

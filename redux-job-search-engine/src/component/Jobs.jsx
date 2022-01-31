@@ -21,12 +21,12 @@ const Jobs = ({ job }) => {
     const inFavourites = useSelector(state => state.favourites.companies)
     console.log(inFavourites)
 
-    const isInFavouritesCart = inFavourites.includes(job.company_name)
+    const isInFavouritesCart = inFavourites.includes(job)
     console.log(isInFavouritesCart)
     const handleFavouriteToggle = () => {
         isInFavouritesCart ?
-            dispatch(removeFromFavouritesAction(job.company_name))
-            : dispatch(addToFavouritesAction(job.company_name))
+            dispatch(removeFromFavouritesAction(job))
+            : dispatch(addToFavouritesAction(job))
     }
     return (
         <>

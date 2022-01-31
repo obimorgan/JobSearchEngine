@@ -5,6 +5,7 @@ export const REMOVE_FROM_FAVOURITES = "REMOVE_FROM_FAVOURITES";
 export const SET_JOBS_BY_CATEGORY = "SET_JOBS_BY_CATEGORY";
 export const SET_JOBS = "SET_JOBS";
 export const CATCH_ERROR = "CATCH_ERROR";
+export const SET_DISPLAY = "SET_DISPLAY";
 
 export const setJobsAction = (searchInput) => {
   return async (dispatch, getState) => {
@@ -46,6 +47,10 @@ export const setJobsByCategoryAction = (category) => {
         dispatch({
           type: SET_JOBS_BY_CATEGORY,
           payload: data.data,
+        });
+        dispatch({
+          type: SET_DISPLAY,
+          payload: false,
         });
       } else {
         console.log("error");

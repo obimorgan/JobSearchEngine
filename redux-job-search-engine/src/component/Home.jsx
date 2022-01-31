@@ -5,6 +5,7 @@ import CategorySearch from './SearchCategory'
 import SearchBar from './SearchBar'
 import { useSelector } from 'react-redux'
 import { Alert } from 'react-bootstrap'
+import { useState } from 'react'
 
 // const mapStateToProps = state => ({
 //     errorStatus: state.categorySearch.errorStatus
@@ -13,7 +14,11 @@ import { Alert } from 'react-bootstrap'
 const Home = () => {
 
     const jobs = useSelector(state => state.categorySearch.results)
+    console.log(jobs)
     const errorStatus = useSelector(state => state.categorySearch.errorStatus)
+    const displayGoodluck = useSelector(state => state.home.displayGoodluck)
+    console.log(displayGoodluck)
+
     return (
         <>
             <div className="wrapper">
@@ -27,6 +32,13 @@ const Home = () => {
             <Container >
                 <hr />
                 {
+                    displayGoodluck === true ?
+                        <Alert variant="success" className="text-center">
+                            <h2>Goodluck with your search!!</h2>
+                        </Alert>
+                        : null
+                }
+                {
                     errorStatus && (
                         <Alert variant="danger">
                             There is an error with retrieving data: {errorStatus}
@@ -34,8 +46,8 @@ const Home = () => {
                     )
                 }
                 <div className="d-flex flex-wrap justify-content-between">
-                    {jobs && jobs.map(job => (
-                        <Jobs job={job} />
+                    {jobs?.map(job => (
+                        <Jobs key={job._id} job={job} />
                     ))
                     }
                 </div>

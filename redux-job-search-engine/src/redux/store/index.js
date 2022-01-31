@@ -20,11 +20,15 @@ export const initialState = {
     results: [],
     errorStatus: null,
   },
+  home: {
+    displayGoodluck: true,
+  },
 };
 
 const rootReducer = combineReducers({
   favourites: favouritesReducer,
   categorySearch: searchReducer,
+  home: searchReducer,
 });
 
 const persistConfig = {

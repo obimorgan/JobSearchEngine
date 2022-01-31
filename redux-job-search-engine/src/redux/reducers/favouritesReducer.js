@@ -16,9 +16,7 @@ const favouritesReducer = (state = initialState.favourites, action) => {
     case REMOVE_FROM_FAVOURITES:
       return {
         ...state,
-        companies: state.companies.filter(
-          (company) => company !== action.payload
-        ),
+        companies: state.companies.filter((job) => job !== action.payload),
       };
     default:
       return state;
