@@ -18,7 +18,7 @@ const Favourites = () => {
 
     const companies = useSelector(state => state.favourites.companies)
     const dispatch = useDispatch()
-
+    console.log(companies)
     return (
         <>
             <div className="wrapper">
@@ -31,7 +31,7 @@ const Favourites = () => {
                 <div className="d-flex flex-wrap justify-content-between">
                     {
                         companies?.map((company, i) => (
-                            <div key={i} className="job_details_frame my-3 mx-1" >
+                            <div key={company._id} className="job_details_frame my-3 mx-1" >
                                 <div className="job_details_body">
                                     <div className="job_card m-auto">
                                         <h3>{company.company_name}</h3>

@@ -23,7 +23,7 @@ const Jobs = () => {
         <>
 
             {jobs.map((job) => (
-                <div job={job._id} className="job_details_frame my-3">
+                <div key={job._id} className="job_details_frame my-3">
                     <div className="job_details_body">
                         <div className="job_card m-auto">
                             <h3>{job.company_name}</h3>
