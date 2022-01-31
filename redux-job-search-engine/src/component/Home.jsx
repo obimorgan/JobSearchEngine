@@ -3,15 +3,16 @@ import Jobs from './Jobs'
 import { Container } from 'react-bootstrap'
 import CategorySearch from './SearchCategory'
 import SearchBar from './SearchBar'
-import { connect } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { Alert } from 'react-bootstrap'
 
-const mapStateToProps = state => ({
-    errorStatus: state.categorySearch.errorStatus
-})
+// const mapStateToProps = state => ({
+//     errorStatus: state.categorySearch.errorStatus
+// })
 
-const Home = ({ errorStatus }) => {
+const Home = () => {
 
+    const errorStatus = useSelector(state => state.categorySearch.errorStatus)
     return (
         <>
             <div className="wrapper">
@@ -39,5 +40,4 @@ const Home = ({ errorStatus }) => {
     )
 }
 
-export default connect(mapStateToProps)(Home)
-// export default Home
+export default Home

@@ -1,23 +1,24 @@
-import { connect } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { setJobsByCategoryAction } from '../redux/actions'
-import { useState } from 'react'
+// import { useState, useEffect } from 'react'
 
-const mapDispatchToProps = dispatch => ({
-    JobsByCategory: (category) => {
-        dispatch(setJobsByCategoryAction(category))
-    }
-})
+// const mapDispatchToProps = dispatch => ({
+//     JobsByCategory: (category) => {
+//         dispatch(setJobsByCategoryAction(category))
+//     }
+// })
 
 const CategorySearch = ({ JobsByCategory }) => {
 
-    const [category, setCategory] = useState("")
+    const dispatch = useDispatch()
+
+    // const [category, setCategory] = useState("")
 
     return (
         <form>
             <select className="category_dropdown"
-                value={category}
-                onChange={e => { setCategory(e.target.value) }}
-            // onClick={e => JobsByCategory(category)}
+                // value={category}
+                onChange={e => { dispatch(setJobsByCategoryAction(e.target.value)) }}
             >
                 <option value="">Categories</option>
                 <option value="Business">Business</option>
@@ -38,4 +39,4 @@ const CategorySearch = ({ JobsByCategory }) => {
         </form>
     )
 }
-export default connect(s => ({}), mapDispatchToProps)(CategorySearch)
+export default CategorySearch

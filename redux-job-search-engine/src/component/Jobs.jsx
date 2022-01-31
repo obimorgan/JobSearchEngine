@@ -1,20 +1,22 @@
 import { Link } from "react-router-dom"
-import { connect } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { addToFavouritesAction } from '../redux/actions'
 
-const mapStateToProps = (state) => ({
-    jobs: state.categorySearch.results
-})
+// const mapStateToProps = (state) => ({
+//     jobs: state.categorySearch.results
+// })
 
-const mapDispatchToProps = (dispatch) => ({
-    addToFavourites: (job) => {
-        console.log("D-a-ta is", job)
-        dispatch(addToFavouritesAction(job))
-    }
-})
+// const mapDispatchToProps = (dispatch) => ({
+//     addToFavourites: (job) => {
+//         console.log("D-a-ta is", job)
+//         dispatch(addToFavouritesAction(job))
+//     }
+// })
 
-const Jobs = ({ jobs, addToFavourites }) => {
-    // const { title, company_name, candidate_required_location } = data
+const Jobs = () => {
+
+    const jobs = useSelector(state => state.categorySearch.results)
+    const dispatch = useDispatch()
 
     return (
         <>
@@ -40,7 +42,7 @@ const Jobs = ({ jobs, addToFavourites }) => {
                         </div>
                         <div className="d-flex justify-content-between">
                             <p className="job_details_header mx-3 mt-2">Job description:</p>
-                            <button onClick={() => addToFavourites(job)}
+                            <button onClick={() => dispatch(addToFavouritesAction(job))}
                                 className="fav_btn mr-3 mt-3"
                             >Add to favourites</button>
                         </div>
@@ -53,4 +55,4 @@ const Jobs = ({ jobs, addToFavourites }) => {
     )
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Jobs)
+export default Jobs

@@ -1,22 +1,23 @@
 import { Link } from "react-router-dom"
-import { connect } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { Container } from "react-bootstrap"
 import { removeFromFavouritesAction } from "../redux/actions"
 
 
-const mapStateToProps = (state) => ({
-    companies: state.favourites.companies
-})
+// const mapStateToProps = (state) => ({
+//     companies: state.favourites.companies
+// })
 
-const mapDispatchToProps = (dispatch) => ({
-    removeFromFavourites: (id) => {
-        dispatch(removeFromFavouritesAction(id))
-    }
-})
+// const mapDispatchToProps = (dispatch) => ({
+//     removeFromFavourites: (id) => {
+//         dispatch(removeFromFavouritesAction(id))
+//     }
+// })
 
-const Favourites = ({ companies, removeFromFavourites }) => {
+const Favourites = () => {
 
-    console.log(companies)
+    const companies = useSelector(state => state.favourites.companies)
+    const dispatch = useDispatch()
 
     return (
         <>
@@ -52,7 +53,7 @@ const Favourites = ({ companies, removeFromFavourites }) => {
                                     <div className="d-flex justify-content-between">
                                         <p className="job_details_header mx-3 mt-2">Job description:</p>
                                     </div>
-                                    <button onClick={() => removeFromFavourites(i)}
+                                    <button onClick={() => dispatch(removeFromFavouritesAction(i))}
                                         className="fav_btn mr-3 mt-3"
                                     >Remove from favourites</button>
 
@@ -66,5 +67,5 @@ const Favourites = ({ companies, removeFromFavourites }) => {
     )
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Favourites)
+export default Favourites
 // export default Favourites

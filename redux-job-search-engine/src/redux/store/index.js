@@ -4,6 +4,7 @@ import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 import searchReducer from "../reducers/searchReducer";
 import favouritesReducer from "../reducers/favouritesReducer";
 import thunk from "redux-thunk";
+// import { persistStore, persistReducer } from "./redux-store";
 
 const composeThatAlwaysWorks =
   window.__REDUX_DEVTOOLS_EXTENSION__COMPOSE__ || compose;
@@ -22,6 +23,8 @@ const rootReducer = combineReducers({
   favourites: favouritesReducer,
   categorySearch: searchReducer,
 });
+
+// const persistConfig =
 
 const store = createStore(
   rootReducer,
