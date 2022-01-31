@@ -12,6 +12,7 @@ import { Alert } from 'react-bootstrap'
 
 const Home = () => {
 
+    const jobs = useSelector(state => state.categorySearch.results)
     const errorStatus = useSelector(state => state.categorySearch.errorStatus)
     return (
         <>
@@ -33,7 +34,10 @@ const Home = () => {
                     )
                 }
                 <div className="d-flex flex-wrap justify-content-between">
-                    <Jobs />
+                    {jobs && jobs.map(job => (
+                        <Jobs job={job} />
+                    ))
+                    }
                 </div>
             </Container>
         </>

@@ -17,7 +17,7 @@ const favouritesReducer = (state = initialState.favourites, action) => {
       return {
         ...state,
         companies: state.companies.filter(
-          (company, id) => id !== action.payload
+          (company) => company !== action.payload
         ),
       };
     default:

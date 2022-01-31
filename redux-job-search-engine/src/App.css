@@ -57,9 +57,18 @@ body {
   overflow: hidden;
 }
 .fav_btn {
+  font-size: 12px;
   border-radius: 10px;
   color: white;
   background-color: rgb(18, 114, 82);
+  border: none;
+  padding: none;
+}
+.fav_remove_btn {
+  font-size: 12px;
+  border-radius: 10px;
+  color: white;
+  background-color: rgb(114, 55, 18);
   border: none;
   padding: none;
 }
