@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom"
 import { useSelector, useDispatch } from 'react-redux'
 import { addToFavouritesAction } from '../redux/actions'
+import { Alert } from "react-bootstrap"
 
 // const mapStateToProps = (state) => ({
 //     jobs: state.categorySearch.results
@@ -20,6 +21,7 @@ const Jobs = () => {
 
     return (
         <>
+
             {jobs.map((job) => (
                 <div job={job._id} className="job_details_frame my-3">
                     <div className="job_details_body">
@@ -49,7 +51,11 @@ const Jobs = () => {
 
                     </div>
                 </div>
-            ))}
+            ))
+            }
+            {/* <Alert className="d-flex m-auto" variant="success" display="none">
+                Goodluck with your search!
+            </Alert> */}
         </>
 
     )
