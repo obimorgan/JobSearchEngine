@@ -6,8 +6,9 @@ import {
   CATCH_ERROR,
   SET_DISPLAY,
 } from "../actions";
+import { AnyAction } from "redux";
 
-const searchReducer = (state = initialState.categorySearch, action) => {
+const searchReducer = (state = initialState.categorySearch, action: AnyAction) => {
   switch (action.type) {
     //--------->>
     case SET_JOBS_BY_CATEGORY:

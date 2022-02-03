@@ -1,5 +1,8 @@
 /** @format */
 
+import { Dispatch } from "redux";
+import { ReduxStore } from "../../types/ReduxStore"
+import { FavouritesCart} from "../../types/FavouritesCart"
 export const ADD_TO_FAVOURITES = "ADD_TO_FAVOURITES";
 export const REMOVE_FROM_FAVOURITES = "REMOVE_FROM_FAVOURITES";
 export const SET_JOBS_BY_CATEGORY = "SET_JOBS_BY_CATEGORY";
@@ -7,8 +10,8 @@ export const SET_JOBS = "SET_JOBS";
 export const CATCH_ERROR = "CATCH_ERROR";
 export const SET_DISPLAY = "SET_DISPLAY";
 
-export const setJobsAction = (searchInput) => {
-  return async (dispatch, getState) => {
+export const setJobsAction = (searchInput: String) => {
+  return async (dispatch: Dispatch, getState: () => ReduxStore ) => {
     try {
       let resp = await fetch(
         `https://strive-jobs-api.herokuapp.com/jobs?search=${searchInput}&limit=10`
@@ -36,8 +39,8 @@ export const setJobsAction = (searchInput) => {
   };
 };
 
-export const setJobsByCategoryAction = (category) => {
-  return async (dispatch) => {
+export const setJobsByCategoryAction = (category: String) => {
+  return async (dispatch: Dispatch) => {
     try {
       let resp = await fetch(
         `https://strive-jobs-api.herokuapp.com/jobs?category=${category}&limit=10`
@@ -65,12 +68,12 @@ export const setJobsByCategoryAction = (category) => {
   };
 };
 
-export const removeFromFavouritesAction = (index) => ({
+export const removeFromFavouritesAction = (index: Number) => ({
   type: REMOVE_FROM_FAVOURITES,
   payload: index,
 });
 
-export const addToFavouritesAction = (data) => {
+export const addToFavouritesAction = (data: FavouritesCart) => {
   return async (dispatch, getState) => {
     console.log("here's my state currently", getState());
     setTimeout(() => {
